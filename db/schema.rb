@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_090025) do
+ActiveRecord::Schema.define(version: 2018_08_01_092318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 2018_08_01_090025) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "review_id"
     t.bigint "user_id"
-    t.bigint "storage_id"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "storage_space_id"
     t.index ["review_id"], name: "index_bookings_on_review_id"
-    t.index ["storage_id"], name: "index_bookings_on_storage_id"
+    t.index ["storage_space_id"], name: "index_bookings_on_storage_space_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_090025) do
   end
 
   add_foreign_key "bookings", "reviews"
-  add_foreign_key "bookings", "storage_spaces", column: "storage_id"
+  add_foreign_key "bookings", "storage_spaces"
   add_foreign_key "bookings", "users"
   add_foreign_key "storage_spaces", "users"
 end

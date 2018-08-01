@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_073755) do
+ActiveRecord::Schema.define(version: 2018_08_01_090025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "review_id"
+    t.bigint "user_id"
+    t.bigint "storage_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_bookings_on_review_id"
+    t.index ["storage_id"], name: "index_bookings_on_storage_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "storage_spaces", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "description"
+    t.string "address_city"
+    t.string "address_zip_code"
+    t.string "address_country"
+    t.string "capacity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_storage_spaces_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +59,14 @@ ActiveRecord::Schema.define(version: 2018_08_01_073755) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "reviews"
+  add_foreign_key "bookings", "storage_spaces", column: "storage_id"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "storage_spaces", "users"
 end

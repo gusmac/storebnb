@@ -1,6 +1,6 @@
-class CreateStorages < ActiveRecord::Migration[5.2]
+class CreateStorageSpaces < ActiveRecord::Migration[5.2]
   def change
-    create_table :storages do |t|
+    create_table :storage_spaces do |t|
       t.references :user, foreign_key: true
       t.text :description
       t.string :address_city

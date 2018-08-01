@@ -3,7 +3,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
     create_table :bookings do |t|
       t.references :review, foreign_key: true
       t.references :user, foreign_key: true
-      t.references :storage, foreign_key: true
+      t.references :storage_space, foreign_key: true
       t.date :start_date
       t.date :end_date
 

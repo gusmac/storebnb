@@ -1,16 +1,38 @@
-<h1>StorageSpaces#index</h1>
-<p>Find me in app/views/storage_spaces/index.html.erb</p>
 
-<h1>List of Storage Spaces</h1>
-<% @storage_spaces.each do |storage_space| %>
-  <%= link_to "#{storage_space.id}", storage_space_path(storage_space) %>
+<div class="container">
+  <h1>List of Storage Spaces</h1>
+  <div class="row">
+    <% @storage_spaces.each do |storage_space| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= "#{storage_space.photo}"%>);">
+        <div class="card-category">Hot Storage Unit</div>
+        <div class="card-description">
+          <h2><%= storage_space.title %></h2>
+        </div>
+        <img class="card-user", alt=<%= "#{storage_space.user}" %> src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+        <%= link_to "", storage_space_path(storage_space), class: "card-link" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <!-- <%= link_to "#{storage_space.id}", storage_space_path(storage_space) %>
   <p>Description: <%= storage_space.description %></p>
   <p>City: <%= storage_space.address_city %></p>
   <p>ZIP: <%= storage_space.address_zip_code %></p>
   <p>Country: <%= storage_space.address_country %></p>
   <p>Owner (Name): <%= storage_space.user.first_name %></p>
   <p>Owner (Email): <%= storage_space.user.email %></p>
-<% end %>
+
+
+<% end %> -->
 
 <h2>Links</h2>
 <ul>

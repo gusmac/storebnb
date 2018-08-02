@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
+gem "pundit"
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -30,6 +31,5 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem "pundit", "~> 2.0"
 
 gem "country_select", "~> 3.1"

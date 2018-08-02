@@ -12,4 +12,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :create, :edit, :update, :show]
   end
   resources :bookings, only: [:destroy]
+
+  get 'user/dashboard', to: 'users#dashboard', as: 'user_dashboard'
+
 end

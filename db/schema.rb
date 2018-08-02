@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 2018_08_02_070410) do
   create_table "bookings", force: :cascade do |t|
     t.bigint "review_id"
     t.bigint "user_id"
-    t.bigint "storage_space_id"
+    t.bigint "storage_id"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["review_id"], name: "index_bookings_on_review_id"
-    t.index ["storage_space_id"], name: "index_bookings_on_storage_space_id"
+    t.index ["storage_id"], name: "index_bookings_on_storage_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_070410) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "storage_spaces", force: :cascade do |t|
+  create_table "storages", force: :cascade do |t|
     t.bigint "user_id"
     t.text "description"
     t.string "address_city"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_070410) do
     t.string "capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_storage_spaces_on_user_id"
+    t.index ["user_id"], name: "index_storages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2018_08_02_070410) do
   end
 
   add_foreign_key "bookings", "reviews"
-  add_foreign_key "bookings", "storage_spaces"
+  add_foreign_key "bookings", "storages"
   add_foreign_key "bookings", "users"
-  add_foreign_key "storage_spaces", "users"
+  add_foreign_key "storages", "users"
 end

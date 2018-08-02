@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 350px 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 110px);
   padding: 30px;
 }
 .profile .main {
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-around;
 }
-@media (max-width: 940px) {
+@media (max-width: 800px) {
   .profile {
     display: block;
   }

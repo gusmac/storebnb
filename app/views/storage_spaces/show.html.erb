@@ -1,0 +1,14 @@
+<h1>Show View Storage Space</h1>
+
+<p>Description: <%= @storage_space.description %></p>
+<p>City: <%= @storage_space.address_city %></p>
+<p>ZIP: <%= @storage_space.address_zip_code %></p>
+<p>Country: <%= @storage_space.address_country %></p>
+<p>Owner (user): <%= @storage_space.user.email %></p>
+
+<h2>Links</h2>
+<ul>
+  <li><%= link_to "Edit Storage Space", edit_storage_space_path%></li>
+  <li><%= link_to "Delete This Storage Space", storage_space_path, method: :delete, data:   { confirm: "Really want to delete this storage space?" } %></li>
+  <li><%= link_to "Back to Index List", storage_spaces_path %></li>
+</ul>

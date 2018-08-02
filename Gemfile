@@ -29,3 +29,7 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+gem "pundit", "~> 2.0"
+
+gem "country_select", "~> 3.1"

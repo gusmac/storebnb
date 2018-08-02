@@ -1,9 +1,8 @@
-<h1>StorageSpaces#edit</h1>
-
-<h1>Edit This to create new storage space</h1>
+<h1>From to create new storage space</h1>
 <!-- simple form -->
 <%= simple_form_for @storage_space do |f| %>
   <%= f.input :description, required: false %>
+  <%= f.input :capacity %>
   <%= f.input :address_city %>
   <%= f.input :address_zip_code %>
   <%= f.input :address_country, priority: ["US","CA","HK","CN","AE"], as: :country %>

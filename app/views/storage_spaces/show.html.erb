@@ -1,29 +1,38 @@
-<h1>Show View Storage Space</h1>
+<div class="container">
+  <h1><%= @storage_space.title %></h1>
 
-<p>Description: <%= @storage_space.description %></p>
-<p>City: <%= @storage_space.address_city %></p>
-<p>ZIP: <%= @storage_space.address_zip_code %></p>
-<p>Country: <%= @storage_space.address_country %></p>
-<p>Owner (user): <%= @storage_space.user.email %></p>
+  <p>Description: <%= @storage_space.description %></p>
+  <p>City: <%= @storage_space.address_city %></p>
+  <p>ZIP: <%= @storage_space.address_zip_code %></p>
+  <p>Country: <%= @storage_space.address_country %></p>
+  <p>Owner (user): <%= @storage_space.user.email %></p>
 
 
-<h2>Reviews</h2>
+  <div class="col-sm-8 col-md-6 col-xs-12">
+    <div class="row">
+      <h2>Reviews</h2>
+      <% if @storage_space.bookings != [] %>
+        <% @storage_space.bookings.each do |booking| %>
+          <% if booking.review != nil %>
+          <p><%= booking.review.description %></p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>Be the first one to put a review</p>
+      <% end %>
+    </div>
+</div>
 
-<% if @storage_space.bookings != [] %>
-  <% @storage_space.bookings.each do |booking| %>
-    <% if booking.review != nil %>
-    <p><%= booking.review.description %></p>
-    <% end %>
-  <% end %>
-<% else %>
-  <p>Be the first one to put a review</p>
-<% end %>
+  <div class="col-sm-8 col-md-6 col-xs-12">
+    <h2>Rent a space</h2>
 
-<%= render 'bookings/form', task: @booking %>
+    <%= render 'bookings/form', task: @booking %>
+  </div>
 
-<h2>Links</h2>
-<ul>
-  <li><%= link_to "Edit Storage Space", edit_storage_space_path%></li>
-  <li><%= link_to "Delete This Storage Space", storage_space_path, method: :delete, data:   { confirm: "Really want to delete this storage space?" } %></li>
-  <li><%= link_to "Back to Index List", storage_spaces_path %></li>
-</ul>
+  <h2>Links</h2>
+  <ul>
+    <li><%= link_to "Edit Storage Space", edit_storage_space_path%></li>
+    <li><%= link_to "Delete This Storage Space", storage_space_path, method: :delete, data:   { confirm: "Really want to delete this storage space?" } %></li>
+    <li><%= link_to "Back to Index List", storage_spaces_path %></li>
+  </ul>
+</div>

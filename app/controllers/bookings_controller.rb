@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_action :set_booking, only: [:create, :update, :destroy, :show, :edit]
+  before_action :set_booking, only: [:update, :destroy, :show, :edit]
 
   def index
     @bookings = policy_scope(Booking).order(name: :asc)
@@ -24,11 +24,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     authorize @booking
+    @storage_space = StorageSpace.find(params[:storage_space_id])
+    @booking.storage_space = @storage_space
 
     if @booking.save
-      redirect_to @booking, notice: "Booking was successfully created"
+      redirect_to storage_space_booking_path(@storage_space, @booking), notice: "Booking was successfully created"
     else
-      render :new
+      redirect_to @storage_space, alert: "Booking unsuccessful! Have you tried turning it off and on again?"
     end
   end
 

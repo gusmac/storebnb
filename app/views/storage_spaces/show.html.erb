@@ -6,6 +6,8 @@
 <p>Country: <%= @storage_space.address_country %></p>
 <p>Owner (user): <%= @storage_space.user.email %></p>
 
+<%= render 'bookings/form', task: @booking %>
+<br>
 <h2>Links</h2>
 <ul>
   <li><%= link_to "Edit Storage Space", edit_storage_space_path%></li>

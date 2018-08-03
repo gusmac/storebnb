@@ -5,12 +5,6 @@
     <p>start_date: <%= @booking.start_date %></p>
     <p>end_date <%= @booking.end_date %></p>
   </div>
-  <div>
-    <h1>Reviews of that storage space</h1>
-      <% @booking.reviews.each do |review| %>
-      <p>Description: <%= review.description %></p>
-      <% end %>
-  </div>
 </div>
 
-<%= link_to "back" %>
+<%= link_to "back", storage_space_path(@booking.storage_space) %>

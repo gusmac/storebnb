@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h5>Fill in the form and save your storage space</h5>
-      <!-- simple form -->
       <%= simple_form_for @storage_space do |f| %>
+        <%= f.input :title, required: true %>
         <%= f.input :description, required: false %>
         <%= f.input :capacity %>
         <%= f.input :address_city %>

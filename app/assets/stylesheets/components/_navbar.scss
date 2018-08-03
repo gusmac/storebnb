@@ -28,7 +28,13 @@
 }
 
 /* User Avatar */
-.navbar-wagon .avatar {
+.navbar-wagon-home .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.navbar-wagon-standard .avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;

@@ -11,7 +11,9 @@
 
 <% if @storage_space.bookings != [] %>
   <% @storage_space.bookings.each do |booking| %>
+    <% if booking.review != nil %>
     <p><%= booking.review.description %></p>
+    <% end %>
   <% end %>
 <% else %>
   <p>Be the first one to put a review</p>

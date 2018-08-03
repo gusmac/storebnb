@@ -26,8 +26,9 @@ class BookingsController < ApplicationController
     authorize @booking
     @storage_space = StorageSpace.find(params[:storage_space_id])
     @booking.storage_space = @storage_space
+
     if @booking.save
-      redirect_to @booking, notice: "Booking was successfully created"
+      redirect_to storage_space_booking_path(@booking, @storage_space), notice: "Booking was successfully created"
     else
       redirect_to @storage_space, alert: "Booking unsuccessful! Have you tried turning it off and on again?"
     end

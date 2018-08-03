@@ -16,15 +16,15 @@ class StorageSpacesController < ApplicationController
   end
 
   def create
-      @storage_space = StorageSpace.new(storage_space_params)
-      @storage_space.user = current_user
-      authorize @storage_space
+    @storage_space = StorageSpace.new(storage_space_params)
+    @storage_space.user = current_user
+    authorize @storage_space
 
-      if @storage_space.save
-        redirect_to @storage_space, notice: 'Storage Space was successfully created.'
-      else
-        render :new
-      end
+    if @storage_space.save
+      redirect_to @storage_space, notice: 'Storage Space was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit

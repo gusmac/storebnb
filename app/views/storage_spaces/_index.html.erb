@@ -1,8 +1,8 @@
 
 <div class="container">
-  <h1>List of Storage Spaces</h1>
+<h1>List of Storage Spaces</h1>
   <div class="row">
-    <% @storage_spaces.each do |storage_space| %>
+    <% storage_spaces.each do |storage_space| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= "#{storage_space.photo}"%>);">
           <div class="card-category"><%= storage_space.capacity %></div>

@@ -11,12 +11,14 @@
   </head>
   <body>
     <% if controller.controller_name == "pages" && controller.action_name == "home" %>
-    <%= render 'shared/navbar' %>
+      <%= render 'shared/navbar' %>
     <% else %>
-    <%= render 'shared/navbar_standard' %>
+      <%= render 'shared/navbar_standard' %>
     <% end %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="container-yield">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

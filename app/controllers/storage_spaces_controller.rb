@@ -53,7 +53,7 @@ class StorageSpacesController < ApplicationController
   end
 
   def storage_space_params
-    params.require(:storage_space).permit(:description, :address_city, :address_zip_code, :address_country, :capactiy)
+    params.require(:storage_space).permit(:description, :address_city, :address_zip_code, :address_country, :capacity, :photo)
   end
 
 end

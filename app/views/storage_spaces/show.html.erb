@@ -6,8 +6,19 @@
 <p>Country: <%= @storage_space.address_country %></p>
 <p>Owner (user): <%= @storage_space.user.email %></p>
 
+
+<h2>Reviews</h2>
+
+<% if @storage_space.bookings != [] %>
+  <% @storage_space.bookings.each do |booking| %>
+    <p><%= booking.review.description %></p>
+  <% end %>
+<% else %>
+  <p>Be the first one to put a review</p>
+<% end %>
+
 <%= render 'bookings/form', task: @booking %>
-<br>
+
 <h2>Links</h2>
 <ul>
   <li><%= link_to "Edit Storage Space", edit_storage_space_path%></li>

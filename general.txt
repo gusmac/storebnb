@@ -1,0 +1,2 @@
+<%= f.input :start_time, as: :string %>
+<%= f.input :end_time, as: :string %>

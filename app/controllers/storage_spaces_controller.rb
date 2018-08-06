@@ -22,7 +22,7 @@ class StorageSpacesController < ApplicationController
     if @storage_space.save
       redirect_to storage_space_path(@storage_space), notice: 'Storage Space was successfully created.'
     else
-      render :new, alert: 'someone fucked up!'
+      render :new, alert: 'You were only supposed to blow the bloody doors off!!'
     end
   end
 
@@ -55,5 +55,4 @@ class StorageSpacesController < ApplicationController
   def storage_space_params
     params.require(:storage_space).permit(:description, :address_city, :address_zip_code, :address_country, :capacity, :photo, :title)
   end
-
 end

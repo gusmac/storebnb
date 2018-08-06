@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:destroy]
 
+  resources :bookings do
+    resources :reviews, only: [:new, :create]
+  end
+
+  resources :reviews, except: [:new, :create]
+
   get 'user/dashboard', to: 'users#dashboard', as: 'user_dashboard'
 
 end

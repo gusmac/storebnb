@@ -33,3 +33,5 @@ end
 
 
 gem "country_select", "~> 3.1"
+gem 'cloudinary'
+gem 'dotenv-rails', groups: [:development, :test]

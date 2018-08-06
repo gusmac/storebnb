@@ -1,3 +1,7 @@
+<%= content_for(:title) do %>
+<%= @storage_space.title %>
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
@@ -8,9 +12,7 @@
     <div class="col-sm-4">
       <h1><%= @storage_space.title %></h1>
       <p>Description: <%= @storage_space.description %></p>
-      <p>City: <%= @storage_space.address_city %></p>
-      <p>ZIP: <%= @storage_space.address_zip_code %></p>
-      <p>Country: <%= @storage_space.address_country %></p>
+      <p>Address: <%= @storage_space.address_city %></p>
       <p>Owner (user): <%= @storage_space.user.email %></p>
     </div>
   </div>

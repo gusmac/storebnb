@@ -9,3 +9,11 @@
   <li><%= booking.storage_space.title %> <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
 <% end %>
 </ul>
+
+<h3><%= current_user.first_name %> <%= current_user.last_name %> Storage Spaces</h3>
+
+<ul>
+<% current_user.storage_spaces.each do |space| %>
+  <li><%= space.title %> <%= link_to "Leave a review", storage_space_path(space) %></li>
+<% end %>
+</ul>

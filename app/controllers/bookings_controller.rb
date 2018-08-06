@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   #GET / bookings/1
   def show
     #render
+    @review = Review.new
   end
 
   def new

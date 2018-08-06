@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_035836) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating"
   end
 
   create_table "storage_spaces", force: :cascade do |t|

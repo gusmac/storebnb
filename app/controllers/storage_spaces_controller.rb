@@ -12,7 +12,15 @@ class StorageSpacesController < ApplicationController
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
     end
+  end
 
+  def user_search
+    PgSearch::Multisearch.rebuild(StorageSpace)
+    results = PgSearch.multisearch()
+
+    results.each do |result|
+      puts result.searchable
+    end
   end
 
   def show

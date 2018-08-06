@@ -37,3 +37,5 @@ gem "country_select", "~> 3.1"
 gem 'cloudinary'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'carrierwave', '~> 1.2'
+
+gem "pg_search", "~> 2.1"

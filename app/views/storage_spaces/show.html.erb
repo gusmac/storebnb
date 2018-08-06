@@ -46,8 +46,14 @@
 <div class="container">
   <h2>Links</h2>
   <ul>
-    <li><%= link_to "Edit Storage Space", edit_storage_space_path%></li>
-    <li><%= link_to "Delete This Storage Space", storage_space_path, method: :delete, data:   { confirm: "Really want to delete this storage space?" } %></li>
+    <li><% if policy(@storage_space).edit? %>
+      <%= link_to "Edit Storage Space", edit_storage_space_path%>
+        <% end %>
+      </li>
+    <li><% if policy(@storage_space).destroy? %>
+      <%= link_to "Delete This Storage Space", storage_space_path, method: :delete, data:   { confirm: "Really want to delete this storage space?" } %>
+        <% end %>
+      </li>
     <li><%= link_to "Back to Index List", storage_spaces_path %></li>
   </ul>
 </div>

@@ -4,22 +4,18 @@ class StorageSpacesController < ApplicationController
 
   def index
     @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
-    @storage_spaces = StorageSpace.where.not(latitude: nil, longitude: nil)
+    # @storage_spaces = StorageSpace.where.not(latitude: nil, longitude: nil)
+    if params[:query].present?
+      @storage_spaces = @storage_spaces.storage_query(params[:query])
+      # @storage_spaces = PgSearch.multisearch(params[:query])
+    end
     @markers = @storage_spaces.map do |storage_space|
+      # byebug
       {
         lat: storage_space.latitude,
         lng: storage_space.longitude#,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
-    end
-  end
-
-  def user_search
-    PgSearch::Multisearch.rebuild(StorageSpace)
-    results = PgSearch.multisearch()
-
-    results.each do |result|
-      puts result.searchable
     end
   end
 

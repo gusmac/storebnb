@@ -6,6 +6,9 @@ Rent your empty spaces to those that need that little bit extra storage
     <div class="banner-content">
       <h1>Got extra storage?</h1>
       <p>Make money and rent it out!</p>
+      <%= form_tag storage_spaces_path, method: :get do |f| %>
+      <%= text_field_tag :query, params[:query] %>
+      <% end %>
   </div>
 </div>
 

@@ -39,3 +39,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'carrierwave', '~> 1.2'
 
 gem "pg_search", "~> 2.1"
+
+gem "pg_trgm", "~> 0.0.1"

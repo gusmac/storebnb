@@ -1,3 +1,7 @@
+<%= content_for(:title) do %>
+<%= current_user.first_name %> <%= current_user.last_name %> Dashboard
+<% end %>
+
 <h3><%= current_user.first_name %> <%= current_user.last_name %> Bookings</h3>
 
 <ul>

@@ -17,6 +17,12 @@ class StorageSpacesController < ApplicationController
 
   def show
     @booking = Booking.new
+     @markers =
+      {
+        lat: @storage_space.latitude,
+        lng: @storage_space.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
   end
 
   def new

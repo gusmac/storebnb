@@ -2,18 +2,59 @@
 <%= current_user.first_name %> <%= current_user.last_name %> Dashboard
 <% end %>
 
-<h3><%= current_user.first_name %> <%= current_user.last_name %> Bookings</h3>
+member since
+email
+phone number
+address
 
-<ul>
-<% current_user.bookings.each do |booking| %>
-  <li><%= booking.storage_space.title %> <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
-<% end %>
-</ul>
+<div class="container">
+    <div class="container-text ">
+      <h3><%= current_user.first_name %> <%= current_user.last_name %> Dashboard</h3>
+    </div>
 
-<h3><%= current_user.first_name %> <%= current_user.last_name %> Storage Spaces</h3>
+  <div class="row dashboard-centering">
+    <div class="col-sm-4">
+      <div><%= image_tag "blank-avatar-300x300.png" %></div>
+    </div>
+    <div class="col-sm-8">
+    </div>
+  </div>
+</div>
 
-<ul>
-<% current_user.storage_spaces.each do |space| %>
-  <li><%= space.title %> <%= link_to "Leave a review", storage_space_path(space) %></li>
-<% end %>
-</ul>
+
+<div class="container">
+    <div class="row">
+      <div class="dashboard-bgc dashboard-centering-second">
+        <div>
+          <div class="dashboard-centering">
+            <h4>Bookings</h4>
+          </div>
+            <ul class="ul">
+            <% current_user.bookings.each do |booking| %>
+              <li><%= link_to booking.storage_space.title, storage_space_booking_path(booking.storage_space_id, booking.id) %> <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
+            <% end %>
+            </ul>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="dashboard-bgc dashboard-centering-second">
+          <div>
+          <div class="dashboard-centering">
+            <h4>Storage Spaces</h4>
+          </div>
+            <ul class="ul">
+            <% current_user.storage_spaces.each do |space| %>
+              <li><%= space.title %> <%= link_to "View Storage", storage_space_path(space) %></li>
+            <% end %>
+            </ul>
+          </div>
+      </div>
+    </div>
+</div>
+
+

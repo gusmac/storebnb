@@ -31,7 +31,10 @@
       <% if @storage_space.bookings != [] %>
         <% @storage_space.bookings.each do |booking| %>
           <% if booking.review != nil %>
-          <p><%= booking.review.description %></p>
+          <div data-review-id="<%= booking.review.id %>">
+            <p><%= booking.review.description %></p>
+            <p><%= link_to "Delete", booking.review, method: :delete, remote: true %></p>
+            </div>
           <% end %>
         <% end %>
       <% else %>

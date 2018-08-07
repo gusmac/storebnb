@@ -4,6 +4,7 @@
     <%= image_tag "logo_box.svg", height: 50 %>
   <% end %>
 
+  <%= render 'shared/search_bar' %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
@@ -16,7 +17,7 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "blank-avatar-300x300.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "JLeopold.jpeg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to user_dashboard_path(current_user) do %>
@@ -56,4 +57,3 @@
     </div>
   </div>
 </div>
-

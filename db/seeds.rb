@@ -145,10 +145,3 @@ review5 = Review.create(
   )
 
 reviews = [review1, review2, review3, review4, review5]
-
-
-
-
-
-
-

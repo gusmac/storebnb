@@ -2,45 +2,48 @@
 <%= current_user.first_name %> <%= current_user.last_name %> Dashboard
 <% end %>
 
-member since
-email
-phone number
-address
-
 <div class="container">
     <div class="container-text ">
       <h3><%= current_user.first_name %> <%= current_user.last_name %> Dashboard</h3>
     </div>
 
-  <div class="row dashboard-centering">
+  <div class="row dashboard-centering user-margin">
     <div class="col-sm-4">
-      <div><%= image_tag "blank-avatar-300x300.png" %></div>
+      <div><%= image_tag "JLeopold.jpeg", class: "user-avatar " %></div>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 dashboard-left ">
+      <ul class="ul">
+        <li>Member Since: 7th August 2018</li>
+        <li>Email: <%= current_user.email %></li>
+        <li>Phone: +123456789</li>
+        <li>Address: </li>
+      </ul>
     </div>
   </div>
 </div>
 
-
-<div class="container">
+<div class="container user-margin ">
     <div class="row">
       <div class="dashboard-bgc dashboard-centering-second">
         <div>
           <div class="dashboard-centering">
             <h4>Bookings</h4>
           </div>
+          <div class="dashboard-left">
             <ul class="ul">
             <% current_user.bookings.each do |booking| %>
-              <li><%= link_to booking.storage_space.title, storage_space_booking_path(booking.storage_space_id, booking.id) %> <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
+              <li>Storage Space Title: <%= link_to booking.storage_space.title, storage_space_booking_path(booking.storage_space_id, booking.id) %> Start Date: <%= booking.start_date %> End Date: <%= booking.end_date %> - <%= link_to "Leave a review", storage_space_booking_path(booking.storage_space_id, booking.id) %></li>
             <% end %>
             </ul>
+          </div>
         </div>
       </div>
   </div>
 </div>
 
-
-<div class="container">
+<% if current_user.storage_spaces.empty? %>
+<% else %>
+<div class="container user-margin ">
     <div class="row">
         <div class="dashboard-bgc dashboard-centering-second">
           <div>
@@ -49,12 +52,13 @@ address
           </div>
             <ul class="ul">
             <% current_user.storage_spaces.each do |space| %>
-              <li><%= space.title %> <%= link_to "View Storage", storage_space_path(space) %></li>
+              <li>Storage Space Title: <%= space.title %> - <%= link_to "View Storage", storage_space_path(space) %></li>
             <% end %>
             </ul>
           </div>
       </div>
     </div>
 </div>
+<% end %>
 
 

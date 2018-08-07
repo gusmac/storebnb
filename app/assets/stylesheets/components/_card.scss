@@ -1,12 +1,12 @@
 .card {
-  height: 275px;
-  //background-size: cover !important;
+  height: 175px;
+  background-size: cover !important;
+  background-position: center;
   background-image: 75%;
-  background-color: white;
   color: black;
   position: relative;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   border: 0.5px #e2e2e2 solid;
 }
 
@@ -17,6 +17,17 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.card-footer {
+  padding: 10px;
+  height: 90px;
+  font-size: 11px;
+  border-radius: 5px;
+  border: 0.5px #e2e2e2 solid;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: white;
 }
 .card-category {
   position: absolute;
@@ -41,10 +52,8 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: black;
-  opacity: 0.0;
   border-radius: 3px;
-
+  margin-bottom: 0px;
 }
 .card-link:hover {
   opacity: 0.03;

@@ -4,7 +4,7 @@ class StorageSpacesController < ApplicationController
 
   def index
     @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
-    @storage_spaces = StorageSpace.where.not(latitude: nil, longitude: nil)
+    # @storage_spaces = StorageSpace.where.not(latitude: nil, longitude: nil)
     @markers = @storage_spaces.map do |storage_space|
       {
         lat: storage_space.latitude,

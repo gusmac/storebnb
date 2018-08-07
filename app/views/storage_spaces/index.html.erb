@@ -2,25 +2,28 @@
 All Storage Space
 <% end %>
 
-<div class="container">
-  <h1>List of Storage Spaces</h1>
+<% @images = ["lucas.jpg","nathan.jpg","joao.jpg"]  %>
+
+<div class="container-fluid" id="container-index">
   <div class="row">
-    <% @storage_spaces.each do |storage_space| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= "#{storage_space.photo}"%>);">
-          <div class="card-category"><%= storage_space.capacity %></div>
-          <div class="card-description">
-            <h2><%= link_to storage_space.title %></h2
-            <p>Description: <%= storage_space.description %></p>
-            <!-- <p>City: <%= storage_space.address_city %></p> -->
-            <!-- <p>ZIP: <%= storage_space.address_zip_code %></p> -->
-            <!-- <p>Country: <%= storage_space.address_country %></p> -->
+    <div class="col-lg-8">
+      <div class="row">
+        <% @storage_spaces.each do |storage_space| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style="background-image:  url(<%= "#{storage_space.photo}"%>);">
+              <img class="card-user", <%= image_tag("#{@images.sample}") %>
+                <%= link_to "", storage_space_path(storage_space), class: "card-link" %>
+            </div>
+            <div class="card-footer">
+              <p>Title: <%= storage_space.title %> | Capacity: <%= storage_space.capacity %> </p>
+              <p>Address: <%= storage_space.address_city %></p>
+            </div>
           </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay" alt="<%= "#{storage_space.user.first_name if storage_space.user } #{storage_space.user.last_name if storage_space.user}" %>">
-          <%= link_to "", storage_space_path(storage_space), class: "card-link" %>
-        </div>
-    <div id="map" style="width: 100%; height: 400px;" data-markers="<%= @markers.to_json %>"></div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+    <div class="col-lg-4">
+      <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
+    </div>
   </div>
 </div>

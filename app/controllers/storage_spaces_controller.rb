@@ -5,9 +5,17 @@ class StorageSpacesController < ApplicationController
   def index
     @storage_spaces = policy_scope(StorageSpace).order(created_at: :desc)
     # @storage_spaces = StorageSpace.where.not(latitude: nil, longitude: nil)
+
     if params[:query].present?
       @storage_spaces = @storage_spaces.storage_query(params[:query])
       # @storage_spaces = PgSearch.multisearch(params[:query])
+
+    @markers = @storage_spaces.map do |storage_space|
+      {
+        lat: storage_space.latitude,
+        lng: storage_space.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
     end
     # @markers = @storage_spaces.map do |storage_space|
     #   # byebug
@@ -21,6 +29,12 @@ class StorageSpacesController < ApplicationController
 
   def show
     @booking = Booking.new
+     @markers =
+      {
+        lat: @storage_space.latitude,
+        lng: @storage_space.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
   end
 
   def new

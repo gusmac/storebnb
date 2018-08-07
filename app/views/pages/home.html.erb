@@ -6,7 +6,10 @@ Rent your empty spaces to those that need that little bit extra storage
     <div class="banner-content">
       <h1>Got extra storage?</h1>
       <p>Make money and rent it out!</p>
+      <% if user_signed_in?  %>
+      <% else %>
       <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "btn-medium" %>
+      <% end %>
   </div>
 </div>
 

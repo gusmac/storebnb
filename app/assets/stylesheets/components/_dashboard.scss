@@ -20,3 +20,23 @@
 .ul {
   list-style-type: none;
 }
+
+.user-avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.user-margin {
+  margin-bottom: 20px;
+}
+
+.user-margin-top {
+  margin-top: 20px;
+}
+
+.dashboard-left {
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+}

@@ -7,6 +7,7 @@ Rent your empty spaces to those that need that little bit extra storage
       <h1>Got extra storage?</h1>
       <p>Make money and rent it out!</p>
       <%= render 'shared/search_bar' %>
+      <%= link_to t(".sign_up", default: "Sign Up"), new_user_registration_path, class: "btn-medium" %>
   </div>
 </div>
 
@@ -15,6 +16,7 @@ Rent your empty spaces to those that need that little bit extra storage
       <h1>Need extra storage?</h1>
       <p>Click here to find storage near you.</p>
       <%= render 'shared/search_bar' %>
+      <%= link_to t(".sign_up", default: "Placeholder for search"), new_user_registration_path, class: "btn-medium" %>
   </div>
 </div>
 

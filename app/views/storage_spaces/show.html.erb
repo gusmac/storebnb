@@ -33,7 +33,9 @@
           <% if booking.review != nil %>
           <div data-review-id="<%= booking.review.id %>">
             <p><%= booking.review.description %></p>
+            <% if policy(booking.review).destroy? %>
             <p><%= link_to "Delete", booking.review, method: :delete, remote: true %></p>
+            <% end %>
             </div>
           <% end %>
         <% end %>

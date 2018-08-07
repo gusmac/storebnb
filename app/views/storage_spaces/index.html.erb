@@ -10,7 +10,7 @@ All Storage Space
         <% @storage_spaces.each do |storage_space| %>
           <div class="col-xs-12 col-sm-4">
             <div class="card" style="background-image:  url(<%= "#{storage_space.photo}"%>);">
-              <img class="card-user", <%= image_tag("#{@images.sample}") %>
+              <%= image_tag("#{@images.sample}" , class: "card-user") %>
                 <%= link_to "", storage_space_path(storage_space), class: "card-link" %>
             </div>
             <div class="card-footer">

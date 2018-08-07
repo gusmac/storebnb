@@ -9,14 +9,9 @@ class StorageSpace < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address_city?
 
   pg_search_scope :storage_query,
-    against: [ :title, :description, :capacity, :address_city, :address_country, :address_zip_code ],
-    using: { using: { tsearch: { any_word: true, dictionary: :english, prefix: true, trigram: true }
-    },
-    # ignoring: :accents,
-     associated_against: {
-      review: [ :description ]
+    against: [ :title, :description, :capacity, :address_city ],
+    :using => {tsearch: {
+      prefix: true}
     }
-  }
-    #
-  # multisearchable :against => [:title, :description, :capacity, :address_city, :address_country, :address_zip_code]
+    # :using => [:trigram, :tsearch]
 end

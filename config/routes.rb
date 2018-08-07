@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # get 'bookings/index'
   devise_for :users
   root to: 'pages#home'
+
+  get '/storer', to: 'pages#storer'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :storage_spaces do
     resources :bookings, only: [:index, :create, :new, :edit, :update, :show]

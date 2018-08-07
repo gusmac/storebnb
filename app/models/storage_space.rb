@@ -13,5 +13,4 @@ class StorageSpace < ApplicationRecord
     :using => {tsearch: {
       prefix: true}
     }
-    # :using => [:trigram, :tsearch]
 end
